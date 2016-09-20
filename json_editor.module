@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * JSON editor module file.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param array $form
+ *   The form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function json_editor_form_field_storage_config_edit_form_alter(array &$form, FormStateInterface $form_state) {
+  if ($form_state->getFormObject()->getEntity()->getType() == 'json_editor') {
+    $form['cardinality_container']['#access'] = FALSE;
+    $form['cardinality_container']['cardinality_number']['#default_value'] = '1';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param array $form
+ *   The form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function json_editor_form_field_config_edit_form_alter(&$form, FormStateInterface $form_state) {
+  if ($form_state->getFormObject()->getEntity()->getType() == 'json_editor') {
+    $form['default_value']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_library_info_build()
+ * TODO: integrate with drush command
+ */
+function json_editor_library_info_build() {
+  $libraries = array();
+
+  if (Drupal::moduleHandler()->moduleExists('json_editor')) {
+    $libraries['lib.jsoneditor.full'] = array(
+      'version' => '5.4.0',
+      'remote' => 'https://github.com/josdejong/jsoneditor/archive/v5.4.0.zip',
+      'license' => array(
+        'name' => 'Apache-2.0',
+        'url' => 'https://github.com/josdejong/jsoneditor/blob/master/LICENSE',
+        'gpl-compatible' => TRUE,
+      ),
+      'js' => array(
+        // TODO: use base_path() drupal global variables, it's the drupal docroot
+        '/' . 'libraries/jsoneditor/dist/jsoneditor.js' => array()
+      ),
+      'css' => array(
+        'component' => array(
+          '/' . 'libraries/jsoneditor/dist/jsoneditor.css' => array()
+        )
+      )
+    );
+  }
+
+  return $libraries;
+}

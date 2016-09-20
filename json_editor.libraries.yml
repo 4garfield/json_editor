@@ -1,0 +1,21 @@
+json_editor.widget:
+  version: 1.x
+  js:
+    js/json_editor_widget.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
+
+json_editor.render:
+  version: 1.x
+  js:
+    js/json_editor_render.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
