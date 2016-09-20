@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.json_editor
+    - node.type.json_editor
+  module:
+    - json_editor
+id: node.json_editor.json_editor
+field_name: json_editor
+entity_type: node
+bundle: json_editor
+label: JSON
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: json_editor

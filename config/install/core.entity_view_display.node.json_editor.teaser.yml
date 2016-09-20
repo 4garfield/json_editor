@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.json_editor.json_editor
+    - node.type.json_editor
+  module:
+    - user
+id: node.json_editor.teaser
+targetEntityType: node
+bundle: json_editor
+mode: teaser
+content: {  }
+hidden:
+  json_editor: true
+  links: true
