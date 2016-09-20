@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.json_editor.json_editor
+    - node.type.json_editor
+  module:
+    - json_editor
+    - user
+id: node.json_editor.default
+targetEntityType: node
+bundle: json_editor
+mode: default
+content:
+  json_editor:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: json_editor_default_formatter
+hidden:
+  links: true
