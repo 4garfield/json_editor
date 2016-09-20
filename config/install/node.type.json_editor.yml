@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {}
+third_party_settings: {}
+name: JSON
+type: json_editor
+description: 'create <em>JSON</em> content using json editor'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true
