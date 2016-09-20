@@ -1,9 +1,11 @@
-name: JSON Editor module
-description: a editor supports JSON format
-version: 8.x-1.x-dev
+name: JSON Editor
+description: a content type which supports JSON format
 package: Custom
 
-core: 8.x
-type: module
 dependencies:
  - field
+
+type: module
+core: 8.x
+
+version: 8.x-1.x-dev
